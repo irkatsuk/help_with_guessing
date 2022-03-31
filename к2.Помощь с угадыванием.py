@@ -102,6 +102,28 @@ def handle_dialog(res, req):
             elif 'нет' in req['request']['nlu']['tokens']:
                 res['response']['text'] = 'Ну и ладно!'
                 res['end_session'] = True
+            elif 'помощь' in req['request']['nlu']['tokens']:
+                res['response']['text'] = 'Назовите ваше имя. Затем вы ' \
+                                          'можете согласиться поиграть ' \
+                                          'с Алисой в города. ' \
+                                          'У вас будет 2 попытки угадать ' \
+                                          'город по фотографии. После этого ' \
+                                          'вы можете ' \
+                                          'сыграть с Алисой еще раз.'
+                res['response']['buttons'] = [
+                    {
+                        'title': 'Да',
+                        'hide': True
+                    },
+                    {
+                        'title': 'Нет',
+                        'hide': True
+                    },
+                    {
+                        'title': 'Помощь',
+                        'hide': True
+                    }
+                ]
             else:
                 res['response']['text'] = 'Не поняла ответа! Так да или нет?'
                 res['response']['buttons'] = [
