@@ -40,8 +40,7 @@ def handle_dialog(res, req):
     user_id = req['session']['user_id']
 
     if req['request']['original_utterance'].lower() == 'помощь':
-        res['response']['text'] = 'Назовите ваше имя. ' \
-                                  'Затем вы можете согласиться поиграть ' \
+        res['response']['text'] = 'Вы можете согласиться поиграть ' \
                                   'с Алисой в города. ' \
                                   'У вас будет 2 попытки угадать город ' \
                                   'по фотографии. После этого вы можете ' \
